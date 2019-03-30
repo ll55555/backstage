@@ -17,5 +17,6 @@ import router from './router.js'
 new Vue({
   render: h => h(App),
   // 挂载到Vue实例上
-  riuter
+  router
 }).$mount('#app')
+
