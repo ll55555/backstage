@@ -1,4 +1,4 @@
-import Vue fromm 'vue'
+import Vue from 'vue'
 import VueRouterr  from 'vue-router'
 Vue.use(VueRouter)
 
@@ -22,7 +22,7 @@ let router = [
 
 // 实例化路由对象
 let router = new VueRouter({
-    router
+    routes
 })
 
 // 暴露
