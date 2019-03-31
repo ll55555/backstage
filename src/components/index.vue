@@ -11,7 +11,7 @@
           <h2>牛逼的车车网</h2>
         </el-col>
         <el-col :span="2">
-          <el-button type="success">退出</el-button>
+          <el-button type="success" @click="logout">退出</el-button>
         </el-col>
       </el-row>
     </el-header>
@@ -42,7 +42,24 @@
 
 <script>
 export default {
-  name: "index"
+  name: "index",
+  methods: {
+    logout(){
+      // 删除缓存
+      window.sessionStorage.removeItem("taken");
+      // 样式编程  去登陆页
+      this.$router.push('/login')
+    }
+  },
+  // 这里因为不需要组件中的数据,只是缓存数据 跟组件无关 尽可能早
+  beforeCreate() {
+    if(window.sessionStorage.getItem("token")){
+
+    }else{
+      this.$message.error("老铁,记得登录");
+      this.$router.push("/login");
+    }
+  },
 };
 </script>
 

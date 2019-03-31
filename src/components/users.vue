@@ -38,31 +38,33 @@ export default {
   name: "users",
   data() {
     return {
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄"
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
-        }
-      ]
+    //  总条数
+    tatal:0,
+    // 接口用到的数据
+    sendData:{
+      query:"",
+      pagenum:1,
+      pagesize:10
+    },
+      //  用户数组
+      userList:[]
     };
+  },
+  // 接口调用
+  async created(){
+    let res = await this.$axios.get("users",{
+      headers:{
+        Authorization:window.sessionStorage.getItem('token')
+      },
+      params: this.sendData
+    });
+    // console.log(res);
+    
   }
-};
+  }
+ 
+
+
 </script>
 
 <style lang='scss'>
